@@ -187,7 +187,7 @@ if (menu) {
 
   desserts.forEach(dessert => {
 
-    const card = document.createElement("div");
+    const card = document.createElement("article");
     card.classList.add("product-card");
 
     card.innerHTML = `
