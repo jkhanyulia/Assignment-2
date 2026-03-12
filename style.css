@@ -279,15 +279,15 @@ nav a {
   height: 25rem;
   object-fit: cover;
 }
-/* end AI assisted ssection */
+/* end AI assisted section */
 
 /* badges: AI assisted */
 .badges {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  display: flex;
-  gap: 6px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    gap: 6px;
 
 }
 
@@ -300,11 +300,11 @@ nav a {
 }
 
 .badge.viral {
-  background: var(--green);
+    background: var(--green);
 }
 
 .badge.hot {
-  background: var(--orange);
+    background: var(--orange);
 }
 
 .badge:hover {
@@ -343,17 +343,17 @@ nav a {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: 0.2s;
 }
-/* end AI assisted ssection */
+/* end AI assisted section */
 
 .wishlist:hover {
-    transform: ease-in-out scale(1.1);
+    transform: ease-in-out scale(2);
 }
 
 .card-content {
-    padding: 20px;
+    padding: 1rem;
 }
 
-.card-content h3 {
+.card-content h2 {
     font-family: 'Nexa';
     font-weight: 'bold';
     font-size: 18px;
@@ -391,7 +391,7 @@ nav a {
 }
 
 .add-btn:hover {
-  background: var(--muted-pink-darker);
+    background: var(--muted-pink-darker);
 }
 
 
@@ -439,8 +439,42 @@ nav a {
 
 .menu-page h1 {
     color: var(--dark-pink);
-    margin-top: 30px;
+    margin-top: 1.25rem;
 }
+
+.filter {
+    display: flex;
+    flex-wrap: wrap;
+  /* align-items: center; */
+    justify-content: left;
+    gap: 0.5rem;
+    /* border: 0; */
+    padding: 2rem 0 0 0;
+}
+
+.filter-btn {
+    cursor: pointer;
+  /* text-transform: uppercase; */
+    font-family: 'Nexa';
+    background: var(--muted-pink-darker);
+    color:var(--bg-pink);
+    border: 0;
+    border-radius: 1.25rem;
+    padding: 0.5rem 1rem;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+    background-color: var(--muted-pink);
+    border: 0;
+}
+
+.filter-btn.active {
+    background: var(--dark-pink);
+    color: var(--bg-pink);
+    border: 0;
+}
+
 
 
 /* FORM */
@@ -498,7 +532,7 @@ input, select {
 }
 
 /* focus: ChatGPT suggested I add this */
-input:focus, select:focus, button:focus {
+input:focus, select:focus { /* deleted button:focus becaus eit was outlining every button on the website*/
     outline: 2px solid var(--muted-pink-darker);
 }
 

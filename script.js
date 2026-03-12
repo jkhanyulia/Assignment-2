@@ -158,27 +158,33 @@ const desserts = [
   { name: "Matcha Cloud Tiramisu", 
     desc: "Fluffy matcha layers with mascarpone cream. TikTok famous!", 
     price: 8.99, 
-    image: "img/matcha_cloud_tiramisu.webp" },
+    image: "img/matcha_cloud_tiramisu.webp",
+    filter: "cakes" },
   { name: "Strawberry Cloud Cake", 
     desc: "Light as air, sweet as dreams. Instagram's favorite!", 
     price: 7.99,
-    image: "img/strawberry_cloud_cake.webp" },
+    image: "img/strawberry_cloud_cake.webp",
+    filter: "cakes" },
   { name: "Biscoff Cookie Crunch", 
     desc: "Cookie butter heaven meets caramel bliss. Pure indulgence!", 
     price: 6.99,
-    image: "img/biscoff_cookie_crunch.webp" },
+    image: "img/biscoff_cookie_crunch.webp",
+    filter: "cookies" },
   { name: "Ube Purple Dream", 
     desc: "Filipino flavor magic with that purple aesthetic!", 
     price: 8.99,
-    image: "img/ube_purple_dream.webp" },
+    image: "img/ube_purple_dream.webp",
+    filter: "cookies" },
   { name: "Pistachio Dream Tart", 
     desc: "Nutty, creamy, totally bougie. Chef's kiss!", 
     price: 9.49,
-    image: "img/pistachio_dream_tart.webp" },
+    image: "img/pistachio_dream_tart.webp",
+    filter: "pastries" },
   { name: "Cronut Supreme", 
     desc: "Half croissant, half donut, 100% delicious!", 
     price: 5.99,
-    image: "img/cronut_supreme.webp" }
+    image: "img/cronut_supreme.webp",
+    filter: "pastries" }
 ]
 
 const menu = document.getElementById("menuGrid");
@@ -189,6 +195,7 @@ if (menu) {
 
     const card = document.createElement("article");
     card.classList.add("product-card");
+    card.setAttribute("data-filter", dessert.filter);
 
     card.innerHTML = `
       <div class="image-wrapper">
@@ -203,7 +210,7 @@ if (menu) {
       </div>
 
       <div class="card-content">
-          <h3>${dessert.name}</h3>  
+          <h2>${dessert.name}</h2>  
 
           <p class="description">
               ${dessert.desc}
@@ -220,4 +227,46 @@ if (menu) {
 
   });
 
+}
+
+// Filtering functionality
+const filterList = document.querySelector(".filter");
+const filterButtons = filterList.querySelectorAll(".filter-btn");
+
+let dessertIndex = 0;
+
+// looping through filter buttons and adding click event listeners to each one
+filterButtons.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    let dessertCategory = e.target.getAttribute("data-filter");
+
+    if (!document.startViewTransition) {
+      updateActiveButton(e.target);
+      filterDesserts(dessertCategory);
+    }
+
+    document.startViewTransition(() => {
+      updateActiveButton(e.target);
+      filterDesserts(dessertCategory);
+    });
+  });
+});
+
+function updateActiveButton(newButton) {
+  filterList.querySelector(".active").classList.remove("active");
+  newButton.classList.add("active");
+}
+
+function filterDesserts(filter) {
+  const cards = document.querySelectorAll(".product-card");
+
+  cards.forEach((card) => {
+    const category = card.getAttribute("data-filter");
+
+    if (filter === "all" || filter === category) {
+      card.removeAttribute("hidden");
+    } else {
+      card.setAttribute("hidden", "");
+    }
+  });
 }
