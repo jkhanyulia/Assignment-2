@@ -39,23 +39,25 @@ const quantity = document.getElementById("quantity");
 const message = document.getElementById("formMessage");
 isValid = true;
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+if (form) {
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  const valid = validateInputs();
+    const valid = validateInputs();
 
-  if (valid) {
-    message.textContent = "🎉 Order submitted successfully!";
-    form.reset();
-  }
+    if (valid) {
+      message.textContent = "🎉 Order submitted successfully!";
+      form.reset();
+    }
 
-  // Clear success/error styling
-  document.querySelectorAll(".input-control").forEach(control => {
-  control.classList.remove("success");
-  control.classList.remove("error");
+    // Clear success/error styling
+    document.querySelectorAll(".input-control").forEach(control => {
+    control.classList.remove("success");
+    control.classList.remove("error");
+    });
+
   });
-
-});
+}
 
 const setError = (element, message) => {
   const inputControl = element.parentElement;
@@ -151,7 +153,7 @@ const validateInputs = () => {
 };
 
 
-// Dynamic rendering of desserts on the order page
+// Dynamic rendering of desserts
 const desserts = [
   { name: "Matcha Cloud Tiramisu", 
     desc: "Fluffy matcha layers with mascarpone cream. TikTok famous!", 
@@ -178,8 +180,6 @@ const desserts = [
     price: 5.99,
     image: "img/cronut_supreme.webp" }
 ]
-
-// Dynamic rendering of desserts
 
 const menu = document.getElementById("menuGrid");
 
