@@ -37,22 +37,124 @@ body {
     font-family: 'Nexa';
     background-color: var(--bg-pink);
     color: black;
+    overflow-x: hidden;
 }
 
+.flex {
+    display: flex;
+    gap: 2rem;
+}
 
 /* NAV BAR */
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 60px;
+    padding: 20px min(2vw, 60px);
     background: white;
 }
 
+/* primary header */
 .logo {
+    /* margin: 2rem; */
     font-family: 'SuperDessert';
-    font-size: 24px;
+    font-size: min(4vw, 24px);
     color: var(--muted-pink);
+}
+
+.primary-header {
+    display: flex;
+    /* padding: 2rem 4rem; */
+    align-content: center;
+    justify-content: space-between;
+}
+
+.mobile-nav-toggle {
+    display: none;
+}
+
+.primary-navigation {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* AI-Assisted Screen-Reader-Only Styling */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+/* end AI-Assisted Section */
+
+@media (max-width: 768px) {
+    .primary-navigation {
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 40%;
+        flex-direction: column;
+        padding: min(20vh, 5rem) 1em;
+        background: whitesmoke;
+
+        transform: translateX(100%);
+        transition: transform 500ms ease-out;
+    }
+
+    .primary-navigation a {
+        font-weight: bold;
+    }
+
+    .primary-navigation .cta-nav {
+        color: black;
+        font-weight: bold;
+        font-family: 'Nexa';
+        background: none;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .primary-header .cta-nav:hover {
+        background-color: whitesmoke;
+    }
+    
+    .mobile-nav-toggle {
+        display: block;
+        z-index: 9999;
+        position: absolute;
+        background-color: transparent;
+        background-image: url(img/nav.png);
+        background-repeat: no-repeat;
+        width: 1.5rem;
+        margin: 1.5vh min(2vw, 60px);
+        border: 0;
+        aspect-ratio: 1;
+        top: 1rem;
+        right: 2rem;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"] {
+        background-image: url(img/close.png);
+        background-repeat: no-repeat;
+    }
+
+    .mobile-nav-toggle:focus {
+        border: black;
+        
+    }
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0%);
+        border: none;
+    }
+    
+
+
 }
 
 nav a {
@@ -77,8 +179,8 @@ nav a {
 
 /* HERO SECTION */
 .hero {
-    padding: 10vh;
-    height: 80vh;
+    padding: min(10vh, 4vw);
+    height: 20%;
     background: linear-gradient(150deg, var(--bright-gradient-pink), var(--soft-gradient-pink)); /* inspired by in-class activity */
     align-items: center;
     justify-content: center;
@@ -89,7 +191,7 @@ nav a {
     color: white;
     font-family: 'SuperDessert';
     font-weight: normal;
-    font-size: 100px;
+    font-size: min(10vw,100px);
     margin-bottom: 20px;
 }
 
@@ -97,13 +199,13 @@ nav a {
     color: var(--dark-pink);
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 20px;
+    font-size: min(3vw, 24px);
 }
 
-.hero p1 {
+.hero span {
     color:var(--dark-pink);
     font-family: 'Nexa';
-    font-size: 12px;
+    font-size: min(2.5vw, 16px);
 }
 
 
@@ -111,10 +213,10 @@ nav a {
     background: var(--muted-pink);
     text-decoration: none;
     color: white;
-    padding: 12px 60px;
-    border-radius: 30px;
+    padding: 1% 10%;
+    border-radius: 100px;
     display: inline-block;
-    margin-top: 30px;
+    margin: 1%;
     transition: 0.3s;
     font-size: 20px;
     border: none;
@@ -127,7 +229,7 @@ nav a {
 }
 
 .stats-section {
-    padding: 40px;
+    padding: 6%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,6 +239,7 @@ nav a {
 
 .stat h2 {
     color: var(--muted-pink);
+    font-size: max(3vh, 24px);
 }
 
 
@@ -295,16 +398,19 @@ nav a {
 /* SOCIAL PROOFS */
 .testimonials {
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: center;
     text-align: center;
+    padding: 20px;
+    gap: 20px;
 }
 
 .testimonial {
     background: white;
-    padding: 20px;
-    margin: 20px;
-    width: 30%;
+    padding: 5%;
+    /* margin: 5%; */
+    width: 100%;
+    /* height: min(35vw, 20vh); */
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
@@ -312,11 +418,15 @@ nav a {
 .testimonial p {
     font-weight: bold;
     color:var(--dark-pink);
+    font-size: min(3vw, 16px);
+    text-align: left;
 }
 
 .testimonial span {
     font-weight: bold;
     color: var(--muted-pink);
+    font-size: min(2.5vw, 14px);
+    text-align: center;
 }
 
 
@@ -335,7 +445,7 @@ nav a {
 
 /* FORM */
 .form-section {
-    padding: 60px;
+    padding: 10%;
     max-width: 500px;
     margin: auto;
 }
@@ -343,8 +453,8 @@ nav a {
 .form-section h1 {
     color: var(--dark-pink);
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 45px;
+    margin-bottom: 5%;
+    font-size: 300%;
 }
 
 form {
@@ -352,10 +462,37 @@ form {
     flex-direction: column;
 }
 
+.input-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.input-control.success input {
+    border-color: var(--green);
+}
+
+.input-control.error input {
+    border-color: var(--orange);
+}
+
+.input-control .error-message {
+    color: var(--orange);
+    font-size: 12px;
+    /* margin-top: 1px; */
+    /* height: 12px;
+    margin-top: 4px; */
+}
+
+label span {
+    color: var(--muted-pink);
+    font-size: 120%;
+}
+
 input, select {
     font-family: 'Nexa';
     padding: 10px;
-    margin-bottom: 20px;
+    /* margin-top: 2%; */
     border-radius: 10px;
     border: 1px solid black;
 }
@@ -371,5 +508,5 @@ footer {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 5%;
 }

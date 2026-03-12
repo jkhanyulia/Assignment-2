@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <title>Sweet Dreams</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-<header>
+<header class="primary-header flex">
     <div class="logo">Sweet Dreams</div>
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Navigation</span></button>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="order.html" class="cta-nav">Order Now</a>
+        <ul id ="primary-navigation" data-visible="false" class="primary-navigation flex">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="order.html" class="cta-nav">Order Now</a></li>
+        </ul>
     </nav>
 </header>
+
 <main>
     <section class="hero">
         <div class="hero-content">
@@ -37,7 +41,7 @@
             </div>
 
             <div class="stat">
-                <h2>4.9<span class="star">★</span></h2>
+                <h2>4.9 ★</h2>
                 <span>Average Rating</span>
             </div>
         </div>
@@ -46,8 +50,9 @@
 
     <section class="trending">
         <h2>Trending Right Now</h2>
-        <div class="menu-grid">
-            <!-- first product -->
+        <div class="menu-grid" id ="menuGrid">
+<!-- 
+            <-- first product --
             <div class="product-card">
                 <div class="image-wrapper">
                     <img src="img/matcha_cloud_tiramisu.webp" alt="Matcha Cloud Tiramisu">
@@ -71,7 +76,7 @@
                 </div>
             </div>
 
-            <!-- second product -->
+            <-- second product --
             <div class="product-card">
                 <div class="image-wrapper">
                     <img src="img/strawberry_cloud_cake.webp" alt="Strawberry Cloud Cake">
@@ -97,7 +102,7 @@
                 </div>
             </div>
 
-            <!-- third product -->
+            <-- third product --
             <div class="product-card">
                 <div class="image-wrapper">
                     <img src="img/biscoff_cookie_crunch.webp" alt="Biscoff Cookie Crunch">
@@ -123,7 +128,7 @@
                 </div>
             </div>
 
-            <!-- fourth product -->
+            <-- fourth product --
             <div class="product-card">
                 <div class="image-wrapper">
                     <img src="img/ube_purple_dream.webp" alt="Ube Purple Dream">
@@ -151,7 +156,7 @@
                 </div>
             </div>
 
-            <!-- fifth product -->
+            <-- fifth product 
             <div class="product-card">
                 <div class="image-wrapper">
                     <img src="img/pistachio_dream_tart.webp" alt="Pistachio Dream Tart">
@@ -179,7 +184,7 @@
                 </div>
             </div>
 
-            <!-- sixth product -->
+            <-- sixth product
             <div class="product-card">
                 <div class="image-wrapper">
                     <img src="img/cronut_supreme.webp" alt="Cronut Supreme">
@@ -205,7 +210,7 @@
                         <button class="add-btn">🛒 Add</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </section>

@@ -8,44 +8,62 @@
 </head>
 <body>
 
-<header>
+<header class="primary-header flex">
     <div class="logo">Sweet Dreams</div>
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Navigation</span></button>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="menu.html">Menu</a>
-        <a href="order.html" class="cta-nav">Order Now</a>
+        <ul id ="primary-navigation" data-visible="false" class="primary-navigation flex">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="order.html" class="cta-nav">Order Now</a></li>
+        </ul>
     </nav>
 </header>
 
 <section class="form-section">
-    <h1>Place Your Order</h1>
+    <form id="orderForm" action="/">
 
-    <form id="orderForm">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required>
+        <h1>Place Your Order</h1>
 
+        <div class="input-control">
+            <label for="name">Full Name<span>*</span></label>
+            <input type="text" id="name" name="name">
+            <div class="error-message"></div>
+        </div>
 
-        <label for="email">Email Address</label>
-        <input type="email" id="email" required>
+        <div class="input-control">
+            <label for="email">Email Address<span>*</span></label>
+            <input type="email" id="email" name="email">
+            <div class="error-message"></div>
+        </div>
 
-        <label for="tel">Telephone Number</label>
-        <input type="tel" id="tel" required>
+        <div class="input-control">
+            <label for="tel">Telephone Number<span>*</span></label>
+            <input type="tel" id="tel" name="tel" maxlength="10">
+            <div class="error-message"></div>
+        </div>
 
-        <label for="dessert">Select Dessert</label>
-        <select id="dessert" required>
-            <option value="">Choose One</option>
-            <option>Matcha Cloud Tiramisu</option>
-            <option>Strawberry Cloud Cake</option>
-            <option>Biscoff Cookie Crunch</option>
-            <option>Ube Purple Dream</option>
-            <option>Pistachio Dream Tart</option>
-            <option>Cronut Supreme</option>
-        </select>
+        <div class="input-control">
+            <label for="dessert">Select Dessert<span>*</span></label>
+            <select id="dessert" name="dessert">
+                <option value="">Choose One</option>
+                <option>Matcha Cloud Tiramisu</option>
+                <option>Strawberry Cloud Cake</option>
+                <option>Biscoff Cookie Crunch</option>
+                <option>Ube Purple Dream</option>
+                <option>Pistachio Dream Tart</option>
+                <option>Cronut Supreme</option>
+            </select>
+            <div class="error-message"></div>
+        </div>
 
-        <label for="quantity">Quantity</label>
-        <input type="number" id="quantity" min="1" required>
+        <div class="input-control">
+            <label for="quantity">Quantity<span>*</span></label>
+            <input type="number" id="quantity" name="quantity">
+            <div class="error-message"></div>
+        </div>
 
-        <button type="submit" class="button">Submit Order</button>
+            <button type="submit" class="button" id="submit">Submit Order</button>
     </form>
 
     <p id="formMessage"></p>
