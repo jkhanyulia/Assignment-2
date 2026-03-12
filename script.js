@@ -14,18 +14,27 @@ document.addEventListener("click", (e) => {
 
 const primaryNav = document.querySelector(".primary-navigation");
 const navToggle = document.querySelector(".mobile-nav-toggle");
+const navIcon = navToggle.querySelector("i");
 
 navToggle.addEventListener("click", () => {
   const visibility = primaryNav.getAttribute("data-visible");
 
-  if (visibility === "false") {
+if (visibility === "false") {
     primaryNav.setAttribute("data-visible", "true");
     navToggle.setAttribute("aria-expanded", "true");
+
+    // change icon to X
+    navIcon.classList.remove("fa-bars");
+    navIcon.classList.add("fa-xmark");
+
+  } else {
+    primaryNav.setAttribute("data-visible", "false");
+    navToggle.setAttribute("aria-expanded", "false");
+
+    // change icon back to hamburger
+    navIcon.classList.remove("fa-xmark");
+    navIcon.classList.add("fa-bars");
   }
-    else if (visibility === "true") {
-      primaryNav.setAttribute("data-visible", "false");
-      navToggle.setAttribute("aria-expanded", "false");
-    }
 });
 
 
@@ -231,26 +240,27 @@ if (menu) {
 
 // Filtering functionality
 const filterList = document.querySelector(".filter");
-const filterButtons = filterList.querySelectorAll(".filter-btn");
 
-let dessertIndex = 0;
+if (filterList) {
+  const filterButtons = filterList.querySelectorAll(".filter-btn");
 
-// looping through filter buttons and adding click event listeners to each one
-filterButtons.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    let dessertCategory = e.target.getAttribute("data-filter");
+  // looping through filter buttons and adding click event listeners to each one
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      let dessertCategory = e.target.getAttribute("data-filter");
 
-    if (!document.startViewTransition) {
-      updateActiveButton(e.target);
-      filterDesserts(dessertCategory);
-    }
+      if (!document.startViewTransition) {
+        updateActiveButton(e.target);
+        filterDesserts(dessertCategory);
+      }
 
-    document.startViewTransition(() => {
-      updateActiveButton(e.target);
-      filterDesserts(dessertCategory);
+      document.startViewTransition(() => {
+        updateActiveButton(e.target);
+        filterDesserts(dessertCategory);
+      });
     });
   });
-});
+}
 
 function updateActiveButton(newButton) {
   filterList.querySelector(".active").classList.remove("active");
@@ -270,3 +280,14 @@ function filterDesserts(filter) {
     }
   });
 }
+
+// Back to top button functionality
+const backToTopBtn = document.querySelector(".back-to-top");
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset > 300) {
+    backToTopBtn.classList.add("active");
+  } else {
+    backToTopBtn.classList.remove("active");
+  }
+});
