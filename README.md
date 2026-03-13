@@ -4,7 +4,7 @@ Name: Julia Khanyukova
 Student Number: 101 383 775
 
 1. Changes from Assignment 2:
-From the feedback I got on the 2nd assignment, I added the <main> element to the pages that were missing it (menu.html and order.html), and turned the <h3> tag in menu.html into an <h2> tag instead. I also turned the menu card divs into <article>. I also worked with min() values for certain font sizes and other sizing elements, as well as values like rem, vw, vh, etc., aiming to optimize the website for any screen size, and am happy to say I am very happy with the dynamic resizing. I also added the name attribute to all the form elements that were missing it previously.
+From the feedback I got on the 2nd assignment, I added the "main" element to the pages that were missing it (menu.html and order.html), and turned the "h3" tag in menu.html into an "h2" tag instead. I also turned the menu card divs into "article". I also worked with min() values for certain font sizes and other sizing elements, as well as values like rem, vw, vh, etc., aiming to optimize the website for any screen size, and am happy to say I am very happy with the dynamic resizing. I also added the name attribute to all the form elements that were missing it previously.
 
 
 2. Features Added Checklist:
