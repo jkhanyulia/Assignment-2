@@ -38,6 +38,7 @@ body {
     background-color: var(--bg-pink);
     color: black;
     overflow-x: hidden;
+    min-width: 320px;
 }
 
 .flex {
@@ -46,6 +47,8 @@ body {
 }
 
 /* NAV BAR */
+/* nav bar inspired by Kevin Powell's "Responsive navbar tutorial" video */
+
 header {
     display: flex;
     align-items: center;
@@ -427,6 +430,7 @@ nav a {
     margin-top: 1.25rem;
 }
 
+/* filter button inspired by Kevin Powell's "Tab filtering animations with view transitions" video */
 .filter {
     display: flex;
     flex-wrap: wrap;
@@ -458,8 +462,8 @@ nav a {
 }
 
 
-
 /* FORM */
+/* form inspired by JavaScript Academy's "Form validation using Javascript on the client side for beginners" video */
 .form-section {
     padding: 10%;
     max-width: 500px;
@@ -510,7 +514,7 @@ input, select {
 }
 
 /* focus: ChatGPT suggested I add this */
-input:focus, select:focus { /* deleted button:focus becaus eit was outlining every button on the website*/
+input:focus, select:focus { /* deleted button:focus because it was outlining every button on the website*/
     outline: 2px solid var(--muted-pink-darker);
 }
 
